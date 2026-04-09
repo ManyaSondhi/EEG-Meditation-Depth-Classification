@@ -123,14 +123,20 @@ These features help capture **neuroscientific relationships** between brainwaves
 ### 📈 Model Comparison (Cross Validation)
 ![CV Comparison](outputs/1_cv_comparison.png)
 
-### 📋 CV Summary Table
-![CV Table](outputs/2_cv_table.png)
+### 📋 EDA
+![CV Table](outputs/0_eda.png)
 
 ### 🔍 Confusion Matrix
-![Confusion Matrix](outputs/2_onfusion_matrix.png)
+![Confusion Matrix](outputs/2_confusion_matrix.png)
 
 ### 🧠 Feature Importance
 ![Feature Importance](outputs/3_feature_importance.png)
+
+### 📋 Ablation_studu
+![CV Table](outputs/4_ablation_study.png)
+
+### 📋 Learning Curve
+![CV Table](outputs/5_learning_curve.png)
 
 
 ---

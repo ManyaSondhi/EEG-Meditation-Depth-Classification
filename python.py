@@ -26,7 +26,7 @@ from xgboost import XGBClassifier
 # CONFIG
 # -------------------------------
 RANDOM_SEED = 42
-DATA_PATH = r"D:\FINAL_Improved_Meditation_Dataset.xls"
+DATA_PATH = r"D:\EEG-Meditation-Depth-Classification\FINAL_Improved_Meditation_Dataset.xls"
 
 # -------------------------------
 # 1. LOAD DATA
@@ -271,3 +271,67 @@ try:
 
 except Exception as e:
     print(f"[Feature importance skipped: {e}]")
+
+# -------------------------------
+# 13. VISUALIZATIONS (FIXED)
+# -------------------------------
+import matplotlib.pyplot as plt
+import seaborn as sns
+from sklearn.metrics import confusion_matrix
+
+# ✅ Confusion Matrix
+cm = confusion_matrix(y_test, preds)
+
+plt.figure()
+sns.heatmap(cm, annot=True, fmt='d', cmap="Blues",
+            xticklabels=le.classes_,
+            yticklabels=le.classes_)
+plt.title("Confusion Matrix")
+plt.xlabel("Predicted")
+plt.ylabel("Actual")
+plt.tight_layout()
+plt.savefig("confusion_matrix.png")
+plt.close()
+
+
+# -------------------------------
+# Feature Importance (CORRECT WAY)
+# -------------------------------
+print("\n--- Saving Feature Importance Plot ---")
+
+try:
+    selector  = pipeline.named_steps["select"]
+    ensemble_ = pipeline.named_steps["model"]
+
+    # Get LGBM from ensemble (first model)
+    lgbm_model = ensemble_.estimators_[0]
+
+    # Get selected feature names
+    selected_mask = selector.get_support()
+    selected_features = np.array(feature_cols)[selected_mask]
+
+    # Get importance
+    importances = lgbm_model.feature_importances_
+
+    importance_df = pd.DataFrame({
+        "Feature": selected_features,
+        "Importance": importances
+    }).sort_values(by="Importance", ascending=False)
+
+    # Plot top 10
+    top_n = 10
+    plt.figure()
+    sns.barplot(
+        x="Importance",
+        y="Feature",
+        data=importance_df.head(top_n)
+    )
+    plt.title("Top 10 Important Features (LGBM)")
+    plt.tight_layout()
+    plt.savefig("feature_importance.png")
+    plt.close()
+
+    print("✅ Feature importance plot saved")
+
+except Exception as e:
+    print(f"❌ Feature importance plot failed: {e}")

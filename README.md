@@ -127,10 +127,10 @@ These features help capture **neuroscientific relationships** between brainwaves
 ![CV Table](outputs/2_cv_table.png)
 
 ### 🔍 Confusion Matrix
-![Confusion Matrix](outputs/confusion_matrix.png)
+![Confusion Matrix](outputs/3_confusion_matrix.png)
 
 ### 🧠 Feature Importance
-![Feature Importance](outputs/feature_importance.png)
+![Feature Importance](outputs/4_feature_importance.png)
 
 
 ---

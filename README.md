@@ -137,8 +137,9 @@ These features help capture **neuroscientific relationships** between brainwaves
 ---
 
 ## 👩‍💻 Author
+Sakshi Kumari
+Dhanyasai Supraja
 Manya
-
 ---
 
 ## ⭐ If you found this useful, consider starring the repo!

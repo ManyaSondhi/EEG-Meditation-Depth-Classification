@@ -127,16 +127,11 @@ These features help capture **neuroscientific relationships** between brainwaves
 ![CV Table](outputs/0_eda.png)
 
 ### 🔍 Confusion Matrix
-![Confusion Matrix](outputs/2_confusion_matrix.png)
+![Confusion Matrix](outputs/confusion_matrix.png)
 
 ### 🧠 Feature Importance
-![Feature Importance](outputs/3_feature_importance.png)
+![Feature Importance](outputs/feature_importance.png)
 
-### 📋 Ablation_studu
-![CV Table](outputs/4_ablation_study.png)
-
-### 📋 Learning Curve
-![CV Table](outputs/5_learning_curve.png)
 
 
 ---
